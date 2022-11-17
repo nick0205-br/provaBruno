@@ -22,10 +22,12 @@ export default function Inverter() {
       <header className="App-header">
         <h1>Menu</h1>
       </header>
-      <label>Número</label>
-      <input type='number' value={numberone} onChange={e => setNumberone(Number(e.target.value))}></input>
-      <button onClick={adicionar(numberone)}>Add</button>
-      <button onClick={concluir}>Inverter</button>
+      <div className='div'>
+        <label>Número</label>
+        <input type='number' value={numberone} onChange={e => setNumberone(Number(e.target.value))}></input>
+        <button onClick={adicionar(numberone)}>Add</button>
+        <button onClick={concluir}>Inverter</button>
+        </div>
       <div>
         {resposta.map((resposta)=>(<p>{resposta}</p>))}
       </div>      
