@@ -1,29 +1,23 @@
-function verificarFigurinhas(a, b){
-    let diferentes = 0;
-    for(var i=0;i<a.length;i++){
-        if(a[i]!=b[i]){
-            diferentes = diferentes + 1;
+
+export function Adicionar(valor){
+    let array = [];
+    array.push(valor);
+
+    return array
+} 
+
+export function possibilidades(array1, array2){
+    let cont = -1
+    for (let index = 0; index < array1.length; index++) {
+        if(array1[index] != array2[index]){
+            cont++;
         }
     }
-    return diferentes;
+    let msg = `Exite ${cont} Possibilidades de Troca!` ;
+    return msg;
 }
 
-
-
-function compararArrays(a, b) {
-
-    var possibiladades = 0;
-    for (var i = 0; i < b.length; i++) {
-      for (var j = 0; j < a.length; j++) {
-        if (b[i] != a[j]) {
-            possibiladades += 1;
-        }
-      }
-    }
-    return possibiladades;
-}
-
-let x = compararArrays([1,2,3,6], [2,3,4,5])
+let x = possibilidades([1,2,3,6], [2,3,4,5])
 console.log(x);
    
     

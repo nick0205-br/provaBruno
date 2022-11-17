@@ -1,20 +1,22 @@
 import './index.css';
-import inverter from '../../service/1';
+import { inverter, Adicionar }from '../../service/1';
 import { useEffect } from 'react';
 
 export default function Inverter() {
-  const [conteudo, setConteudo] = useState([]);
-  const [resposta, setResposta] = useState([]);
+  const [array, setArray] = useState([]);
   const [numberone, setNumberone] = useState(0)
   useEffect(() => {
   }, []);
 
   function adicionar(value) {
-    setConteudo([...conteudo, value]);
+      let arr = Adicionar(numberone);
+      let novoArr = [...array, arr];
+      setArray(novoArr);
   }
 
   function concluir(){
-    setResposta(inverter(conteudo));
+    let invert = inverter(array);
+    setArray(invert);
   }
 
   return (
@@ -23,13 +25,14 @@ export default function Inverter() {
         <h1>Menu</h1>
       </header>
       <div className='div'>
-        <label>Número</label>
-        <input type='number' value={numberone} onChange={e => setNumberone(Number(e.target.value))}></input>
+        Número: <input type='number' value={numberone} onChange={e => setNumberone(Number(e.target.value))}></input>
         <button onClick={adicionar(numberone)}>Add</button>
         <button onClick={concluir}>Inverter</button>
         </div>
       <div>
-        {resposta.map((resposta)=>(<p>{resposta}</p>))}
+        {array.map( resposta => 
+            <p>{resposta}</p>
+        )}
       </div>      
     </div>
   )
